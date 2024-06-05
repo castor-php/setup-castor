@@ -1,6 +1,6 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'setup-castor'
+description: 'Install castor with a static binary'
+author: 'Joel Wurtz'
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
@@ -9,15 +9,14 @@ branding:
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
-    required: true
-    default: '1000'
-
-# Define your outputs here.
-outputs:
-  time:
-    description: 'Your output description here'
+  version:
+    description: 'Castor version to use'
+    required: false
+    default: 'latest'
+  token:
+    description: 'GitHub Access Token'
+    required: false
+    default: ${{ github.token }}
 
 runs:
   using: node20
