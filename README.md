@@ -1,6 +1,6 @@
-# Setup Castor Github Action
+# Setup Castor GitHub Action
 
-Setup Castor with static binary for Github Actions.
+Setup Castor with static binary for GitHub Actions.
 
 ## :cloud: OS/Platform Support
 
@@ -34,7 +34,7 @@ on the following OS/Platforms.
 ```yaml
 steps:
   - name: Setup Castor
-    uses: castor-php/setup-castor@v0.1
+    uses: castor-php/setup-castor@v0.1.0
 ```
 
 ### Inputs
@@ -57,7 +57,7 @@ steps:
 ```yaml
 steps:
   - name: Setup Castor
-    uses: castor-php/setup-castor@v0.1
+    uses: castor-php/setup-castor@v0.1.0
     with:
       version: '0.15'
 ```
