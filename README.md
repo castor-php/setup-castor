@@ -48,7 +48,9 @@ steps:
 #### `version` (optional)
 
 - Specify the Castor version you want to set up.
-- Accepts a `string`. For example `'0.15'`.
+- Accepts a `string` corresponding to a
+  [Castor release tag](https://github.com/jolicode/castor/tags). For example
+  `'v0.18.0'`.
 - Accepts `latest` to set up the latest stable PHP version.
 - Accepts `nightly` to set up a nightly build from the master branch of Castor.
 
@@ -59,5 +61,5 @@ steps:
   - name: Setup Castor
     uses: castor-php/setup-castor@v0.1.0
     with:
-      version: '0.15'
+      version: 'v0.18.0'
 ```
