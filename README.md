@@ -2,31 +2,6 @@
 
 Setup Castor with static binary for GitHub Actions.
 
-## :cloud: OS/Platform Support
-
-Both `GitHub-hosted` and `self-hosted` runners are supported by `setup-castor`
-on the following OS/Platforms.
-
-### GitHub-Hosted Runners
-
-| Virtual environment | YAML workflow label               | Pre-installed PHP      |
-| ------------------- | --------------------------------- | ---------------------- |
-| Ubuntu 24.04        | `ubuntu-24.04`                    | `PHP 8.3`              |
-| Ubuntu 22.04        | `ubuntu-latest` or `ubuntu-22.04` | `PHP 8.1`              |
-| Ubuntu 20.04        | `ubuntu-20.04`                    | `PHP 7.4` to `PHP 8.3` |
-| macOS Sonoma 14.x   | `macos-14`                        | -                      |
-
-### Self-Hosted Runners
-
-| Host OS/Virtual environment    | YAML workflow label      |
-| ------------------------------ | ------------------------ |
-| Ubuntu 24.04                   | `self-hosted` or `Linux` |
-| Ubuntu 22.04                   | `self-hosted` or `Linux` |
-| Ubuntu 20.04                   | `self-hosted` or `Linux` |
-| Debian 11                      | `self-hosted` or `Linux` |
-| Debian 10                      | `self-hosted` or `Linux` |
-| macOS Sonoma 14.x x86_64/arm64 | `self-hosted` or `macOS` |
-
 ## :memo: Usage
 
 ### Basic Setup
