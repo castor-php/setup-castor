@@ -9,7 +9,7 @@ Setup Castor with static binary for GitHub Actions.
 ```yaml
 steps:
   - name: Setup Castor
-    uses: castor-php/setup-castor@v0.1.0
+    uses: castor-php/setup-castor@v1.0.0
 ```
 
 ### Inputs
@@ -34,7 +34,7 @@ steps:
 ```yaml
 steps:
   - name: Setup Castor
-    uses: castor-php/setup-castor@v0.1.0
+    uses: castor-php/setup-castor@v1.0.0
     with:
       version: 'v0.18.0'
 ```
