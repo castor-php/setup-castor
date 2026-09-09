@@ -75,20 +75,20 @@
   "devDependencies": {
     "@jest/globals": "^29.7.0",
     "@types/jest": "^29.5.13",
-    "@types/node": "^26.1.1",
+    "@types/node": "^26.4.1",
     "@typescript-eslint/eslint-plugin": "^7.13.0",
     "@typescript-eslint/parser": "^7.13.0",
-    "@vercel/ncc": "^0.38.1",
+    "@vercel/ncc": "^0.45.0",
     "eslint": "^8.57.0",
     "eslint-plugin-github": "^5.0.2",
-    "eslint-plugin-jest": "^29.15.5",
+    "eslint-plugin-jest": "^29.16.6",
     "eslint-plugin-jsonc": "^2.16.0",
-    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-prettier": "^5.5.6",
     "jest": "^29.7.0",
     "make-coverage-badge": "^1.2.0",
-    "prettier": "^3.3.3",
+    "prettier": "^3.9.6",
     "prettier-eslint": "^16.3.0",
-    "ts-jest": "^29.2.5",
+    "ts-jest": "^29.4.12",
     "typescript": "^5.6.2"
   }
 }
