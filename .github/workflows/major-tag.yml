@@ -1,0 +1,39 @@
+# Consumers reference this action as `@v1`, which only works if a moving `v1`
+# tag tracks the latest v1.x release. This workflow keeps it in sync.
+name: Update Major Tag
+
+on:
+  release:
+    types:
+      - published
+
+permissions:
+  contents: write
+
+jobs:
+  major-tag:
+    name: Update Major Tag
+    runs-on: ubuntu-latest
+    if: ${{ !github.event.release.prerelease }}
+
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Move major tag
+        id: move
+        env:
+          TAG: ${{ github.event.release.tag_name }}
+        run: |
+          major="${TAG%%.*}"
+
+          if [ "$major" = "$TAG" ]; then
+            echo "::notice::$TAG is not a semver tag, nothing to move"
+            exit 0
+          fi
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git tag -f "$major"
+          git push -f origin "refs/tags/$major"

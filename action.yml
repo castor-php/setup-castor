@@ -13,6 +13,13 @@ inputs:
     description: 'Castor version to use'
     required: false
     default: 'latest'
+  cooldown:
+    description:
+      'Minimum age of a release before it can be picked when version is
+      "latest", as a duration string ("12 hours", "3 days", "1 week"). Set to 0
+      to disable.'
+    required: false
+    default: '3 days'
   token:
     description: 'GitHub Access Token'
     required: false

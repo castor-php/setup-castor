@@ -38,9 +38,11 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^3.0.1",
-    "@actions/github": "^9.1.1"
+    "@actions/github": "^9.1.1",
+    "ms": "^2.1.3"
   },
   "devDependencies": {
+    "@types/ms": "^2.1.0",
     "@types/node": "^26.6.2",
     "esbuild": "^0.28.2",
     "oxfmt": "^0.70.0",
