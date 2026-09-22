@@ -12,8 +12,8 @@ permissions:
   contents: read
 
 jobs:
-  test-typescript:
-    name: TypeScript Tests
+  check-typescript:
+    name: TypeScript Checks
     runs-on: ubuntu-latest
 
     steps:
@@ -41,6 +41,10 @@ jobs:
       - name: Lint
         id: npm-lint
         run: npm run lint
+
+      - name: Typecheck
+        id: npm-typecheck
+        run: npm run typecheck
 
   test-action:
     name: GitHub Actions Test
