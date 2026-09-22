@@ -1,20 +1,22 @@
 {
-  "name": "typescript-action",
-  "description": "GitHub Actions TypeScript template",
+  "name": "setup-castor",
+  "description": "Install castor with a static binary",
   "version": "0.0.0",
-  "author": "",
+  "author": "Joel Wurtz",
   "private": true,
-  "homepage": "https://github.com/actions/typescript-action",
+  "homepage": "https://github.com/castor-php/setup-castor#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
+    "url": "git+https://github.com/castor-php/setup-castor.git"
   },
   "bugs": {
-    "url": "https://github.com/actions/typescript-action/issues"
+    "url": "https://github.com/castor-php/setup-castor/issues"
   },
   "keywords": [
     "actions",
+    "castor",
     "node",
+    "php",
     "setup"
   ],
   "exports": {
@@ -25,70 +27,25 @@
   },
   "scripts": {
     "bundle": "npm run format:write && npm run package",
-    "ci-test": "npx jest",
-    "coverage": "npx make-coverage-badge --output-path ./badges/coverage.svg",
-    "format:write": "npx prettier --write .",
-    "format:check": "npx prettier --check .",
-    "lint": "npx eslint . -c ./.github/linters/.eslintrc.yml",
-    "package": "npx ncc build src/index.ts -o dist --source-map --license licenses.txt",
+    "format:write": "npx oxfmt .",
+    "format:check": "npx oxfmt --check .",
+    "lint": "npx oxlint --type-aware",
+    "typecheck": "npx tsc --noEmit",
+    "package": "npx esbuild src/index.ts --bundle --platform=node --target=node24 --outfile=dist/index.js --sourcemap --legal-comments=external --banner:js=\"process.setSourceMapsEnabled(true)\"",
     "package:watch": "npm run package -- --watch",
-    "test": "npx jest",
-    "all": "npm run format:write && npm run lint && npm run test && npm run coverage && npm run package"
+    "all": "npm run format:write && npm run lint && npm run typecheck && npm run package"
   },
   "license": "MIT",
-  "jest": {
-    "preset": "ts-jest",
-    "verbose": true,
-    "clearMocks": true,
-    "testEnvironment": "node",
-    "moduleFileExtensions": [
-      "js",
-      "ts"
-    ],
-    "testMatch": [
-      "**/*.test.ts"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/dist/"
-    ],
-    "transform": {
-      "^.+\\.ts$": "ts-jest"
-    },
-    "coverageReporters": [
-      "json-summary",
-      "text",
-      "lcov"
-    ],
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "./src/**"
-    ]
-  },
   "dependencies": {
-    "@actions/core": "^1.10.1",
-    "@actions/github": "^6.0.0"
-  },
-  "overrides": {
-    "undici": "^6.28.0"
+    "@actions/core": "^3.0.1",
+    "@actions/github": "^9.1.1"
   },
   "devDependencies": {
-    "@jest/globals": "^29.7.0",
-    "@types/jest": "^29.5.13",
-    "@types/node": "^26.1.1",
-    "@typescript-eslint/eslint-plugin": "^7.13.0",
-    "@typescript-eslint/parser": "^7.13.0",
-    "@vercel/ncc": "^0.38.1",
-    "eslint": "^8.57.0",
-    "eslint-plugin-github": "^5.0.2",
-    "eslint-plugin-jest": "^29.15.5",
-    "eslint-plugin-jsonc": "^2.16.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "jest": "^29.7.0",
-    "make-coverage-badge": "^1.2.0",
-    "prettier": "^3.3.3",
-    "prettier-eslint": "^16.3.0",
-    "ts-jest": "^29.2.5",
-    "typescript": "^5.6.2"
+    "@types/node": "^26.6.2",
+    "esbuild": "^0.28.2",
+    "oxfmt": "^0.70.0",
+    "oxlint": "^1.85.0",
+    "oxlint-tsgolint": "^7.0.2002",
+    "typescript": "^7.0.2"
   }
 }

@@ -4,27 +4,36 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 7
     groups:
       actions-minor:
+        patterns:
+          - '*'
         update-types:
           - minor
           - patch
-    cooldown:
-      default-days: 7
+      actions-major:
+        patterns:
+          - '*'
+        update-types:
+          - major
 
   - package-ecosystem: npm
     directory: /
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 7
     groups:
-      npm-development:
-        dependency-type: development
+      npm-minor:
+        patterns:
+          - '*'
         update-types:
           - minor
           - patch
-      npm-production:
-        dependency-type: production
+      npm-major:
+        patterns:
+          - '*'
         update-types:
-          - patch
-    cooldown:
-      default-days: 7
+          - major

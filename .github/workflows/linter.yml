@@ -26,17 +26,6 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Setup Node.js
-        id: setup-node
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
-        with:
-          node-version-file: .node-version
-          cache: npm
-
-      - name: Install Dependencies
-        id: install
-        run: npm ci
-
       - name: Lint Codebase
         id: super-linter
         uses: super-linter/super-linter/slim@4ce20838b8ab83717e78138c5b3a1407148e0918 # v8
@@ -44,10 +33,11 @@ jobs:
           DEFAULT_BRANCH: main
           FILTER_REGEX_EXCLUDE: dist/
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TYPESCRIPT_DEFAULT_STYLE: prettier
           VALIDATE_ALL_CODEBASE: true
-          # Biome conflicts with, and duplicates, the Prettier/ESLint setup already
-          # enforced by TYPESCRIPT_PRETTIER/TYPESCRIPT_ES and the npm scripts below.
-          VALIDATE_BIOME_FORMAT: false
-          VALIDATE_BIOME_LINT: false
-          VALIDATE_JSCPD: false
+          # JS/TS is covered by oxlint and oxfmt in the CI workflow, so super-linter
+          # only handles what they do not. Setting any VALIDATE_* to true makes
+          # super-linter skip every validator left unset.
+          VALIDATE_BASH: true
+          VALIDATE_GITHUB_ACTIONS: true
+          VALIDATE_MARKDOWN: true
+          VALIDATE_YAML: true

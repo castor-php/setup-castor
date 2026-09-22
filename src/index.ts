@@ -75,6 +75,9 @@ export async function run(): Promise<void> {
     })
 
     if (file.headers['content-type'] === 'application/octet-stream') {
+      // Octokit types `data` from the response schema, but an
+      // `application/octet-stream` Accept header yields raw bytes at runtime.
+      // oxlint-disable-next-line typescript/no-unsafe-type-assertion
       const data = file.data as unknown as ArrayBuffer
       const path = '/usr/local/bin/castor'
 
@@ -89,4 +92,4 @@ export async function run(): Promise<void> {
   }
 }
 
-run()
+void run()
